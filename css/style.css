@@ -20,16 +20,20 @@ p {
   line-height: 2rem;
 }
 
-h1 {
-  margin-top: 6rem;
-}
-
 i {
   vertical-align: middle;
 }
 
+h5 .left-align {
+  padding-left: 10px;
+}
+
 .button-collapse {
   color: #26a69a;
+}
+
+.item-desc {
+  font-size: 1.5rem;
 }
 
 .parallax-container {
