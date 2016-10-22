@@ -1,4 +1,5 @@
 'use strict';
+
 var itemArray = [
   {
     id: '#burger',
@@ -26,8 +27,40 @@ var itemArray = [
   }
 ];
 
+function subtotalMath() {
+  var subtotal = 0;
+  var tableRows = $('#order_table').children('tbody').children();
+
+  for (var i=0;i<tableRows.length;i++) {
+    var currentRow = $(tableRows[i]).children()[1];
+    subtotal += parseFloat(currentRow.innerText.slice(1));
+  };
+
+  return subtotal;
+};
+
+function taxMath(subtotal) {
+  return (subtotal * (.07));
+};
+
 $( document ).ready(function() {
-  for (var i=0;i<itemArray.length;i++) {
-    console.log($(itemArray[i].id).children);
+  for (let i=0;i<itemArray.length;i++) {
+    var itemLinkArray = $(itemArray[i].id).children().children();
+
+    $(itemLinkArray[3]).on('click', function(e) {
+      e.preventDefault();
+
+      $('#order_table').children('tbody:last-child').append('<tr><td class="right-align">' + itemArray[i].name + '</td><td class="right-align">' + itemArray[i].price + '</td></tr>');
+
+      var subtotalFloat = subtotalMath();
+      var taxFloat = taxMath(subtotalFloat);
+      var totalFloat = subtotalFloat + taxFloat;
+      console.log(typeof subtotalFloat);
+
+      $('#order_subtotal').html("$" +  subtotalFloat.toFixed(2));
+      $('#order_tax').html("$" + taxFloat.toFixed(2));
+
+      $('#order_total').html("$" + (subtotalFloat + taxFloat).toFixed(2));
+    });
   };
 });
