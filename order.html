@@ -33,7 +33,7 @@
         <div class="row center">
 
           <div class="col l6 m6 s6">
-            <div class="card">
+            <div id="burger" class="card hoverable">
               <div class="card-image">
                 <img src="img/burger.jpg">
               </div>
@@ -48,7 +48,7 @@
           </div>
 
           <div class="col l6 m6 s6">
-            <div class="card">
+            <div id="pizza" class="card hoverable">
               <div class="card-image">
                 <img src="img/pizza.jpg">
               </div>
@@ -66,7 +66,7 @@
         <div class="row center">
 
           <div class="col l6 m6 s6">
-            <div class="card">
+            <div id="ribs" class="card hoverable">
               <div class="card-image">
                 <img src="img/ribs.jpg">
               </div>
@@ -81,7 +81,7 @@
           </div>
 
           <div class="col l6 m6 s6">
-            <div class="card">
+            <div id="ice_cream" class="card hoverable">
               <div class="card-image">
                 <img src="img/ice_cream.jpg">
               </div>
@@ -99,11 +99,52 @@
       </div>
       <div id="order_col" class="col l5 m5 s5">
         <h4>Order</h4>
-        <div class="row center order">
+        <div>
 
         </div>
-        <div class="row center cust_info">
-
+        <div class="cust_info">
+          <table class="order_table responsive-table striped">
+            <thead>
+              <th><b>Item</b></th>
+              <th><b>Price</b></th>
+            </thead>
+            <tbody>
+<!-- dynamically built from order.js -->
+            </tbody>
+          </table>
+          <table>
+            <tr>
+              <td class="right-align">Subtotal</td>
+              <td id="order_subtotal" class="right-align">$0.00</td>
+            </tr>
+            <tr>
+              <td class="right-align">Tax</td>
+              <td id="order_tax" class="right-align">$0.00</td>
+            </tr>
+            <tr>
+              <td class="right-align">Total</td>
+              <td id="order_total" class="right-align">$0.00</td>
+            </tr>
+          </table>
+          <form class="col l12">
+            <div class="row">
+              <div class="input-field col l12">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="name_input" type="text" class="validate">
+                <label for="icon_prefix">Name</label>
+              </div>
+              <div class="input-field col l12">
+                <i class="material-icons prefix">phone</i>
+                <input id="phone_input" type="tel" class="validate">
+                <label for="icon_telephone">Telephone</label>
+              </div>
+              <div class="input-field col l12">
+                <i class="material-icons prefix">location_city</i>
+                <input id="address_input" type="text" class="validate">
+                <label for="icon_telephone">Address</label>
+              </div>
+            </div>
+          </form>
         </div>
         <div class="row center">
           <a href="order.html" id="order-button" class="btn waves-effect waves-light teal lighten-1 center">PLACE ORDER</a>
