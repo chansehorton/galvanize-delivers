@@ -44,6 +44,7 @@ function taxMath(subtotal) {
 };
 
 $( document ).ready(function() {
+   $(".button-collapse").sideNav();
 
   for (let i=0;i<itemArray.length;i++) {
     var itemLinkArray = $(itemArray[i].id).children().children();
